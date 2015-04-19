@@ -1,3 +1,8 @@
+//In hindsight, this would've been a good opportunity to create an object
+//constructor called Game() with all methods like roll() and newGame() 
+//to be placed into Game.prototype. Instead, I just slapped everything
+//into KevinSpacey. 
+
 //Roll return 1-x
 function roll(x) {
     return Math.floor(Math.random() * x)+1;
@@ -13,7 +18,7 @@ function roll(x) {
 */
 
 var KevinSpacey = function(cycles, hold){
-	var win = 0;
+	var wins = 0;
  for (var i = cycles; i > 0; i--) {
  	var prize = roll(3); //1
  	var playerChoice = roll(3); //2
@@ -36,7 +41,7 @@ var KevinSpacey = function(cycles, hold){
  	}
 
  	if(hold === true && playerChoice === prize){
- 		win++;
+ 		wins++;
  	}
  	else if (hold === false){// I'm using else if instead just else for descriptive reasons.
  		if(playerChoice === prize){
@@ -44,7 +49,7 @@ var KevinSpacey = function(cycles, hold){
  			//Leave this here in case we want to do something in the future. 
  		}
  		else if(playerChoice !== prize){
- 			win++;
+ 			wins++;
  		}
  	}
  };
